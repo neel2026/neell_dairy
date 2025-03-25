@@ -1,0 +1,42 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% load socialaccount %}
+{% block title %}Login{% endblock title %}
+
+{% block main-content %}
+
+<div class="container">
+    <div class="row my-3">
+        <div class="col-sm-6 offset-sm-3">
+            <h3>Login</h3>
+            <hr>
+            <form action="" method="post" novalidate class="shadow p-5">
+                {% csrf_token %}
+                {% for fm in form %}
+                    {{fm.label_tag }} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small><br>                 
+                {% endfor %}
+                <small><a href="{% url 'password_reset' %}">Forget Password ?</a></small>
+                <br>
+                <input type="submit" class="btn btn-primary mt-4" value="Login">
+                <div class="text-center text-primary fw-bold">
+                    <small>New user? <a href="{% url 'customerregistration' %}" class="text-danger">Create an Account</a></small>
+                </div>
+                {% if form.non_field_errors %}
+                    {% for errors in form.non_field_errors %}
+                        <p class="alert alert-danger my-3">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+            </form>
+
+            <div class="text-center mt-4">
+                <p class="mb-3">Or continue with</p>
+                <a href="{% provider_login_url 'google' process='login' %}" class="btn btn-outline-dark">
+                    <img src="https://www.google.com/favicon.ico" alt="Google" style="width: 20px; margin-right: 10px;">
+                    Continue with Google
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main-content %}

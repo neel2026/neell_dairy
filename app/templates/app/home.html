@@ -1,0 +1,138 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block body_class %}home{% endblock body_class %}
+
+{% block banner_slider %}
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="Fresh Dairy Products">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="Quality Milk">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="Healthy Choices">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="Premium Products">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock banner_slider %}
+
+{% block info %}
+<div class="container">
+    <div class="products-header text-center">
+        <h1>Fresh & Healthy Dairy Products</h1>
+        <p>Experience the goodness of nature with our premium dairy products. From farm-fresh milk to artisanal cheese, 
+           we bring you the finest dairy products that are both delicious and nutritious.</p>
+    </div>
+</div>
+{% endblock info %}
+
+{% block main-content %}
+<div class="container product-categories">
+    <h2 class="text-center mb-5">Our Products</h2>
+    
+    <div class="row">
+        <!-- Ghee -->
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'category' 'GH' %}" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="{% static 'app/images/buffalo-ghee.png'%}" alt="Pure Ghee" class="img-fluid">
+                    <h3 class="category-name">Pure Ghee</h3>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Curd -->
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'category' 'CR' %}" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="{% static 'app/images/curd-total.png'%}" alt="Fresh Curd" class="img-fluid">
+                    <h3 class="category-name">Fresh Curd</h3>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Ice Cream -->
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'category' 'IC' %}" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="{% static 'app/images/kulfi.png'%}" alt="Kulfi" class="img-fluid">
+                    <h3 class="category-name">Traditional Kulfi</h3>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Milkshake -->
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'category' 'MS' %}" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="{% static 'app/images/milk-shake-chocolate.png'%}" alt="Milkshake" class="img-fluid">
+                    <h3 class="category-name">Rich Milkshakes</h3>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Milk -->
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'category' 'ML' %}" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="{% static 'app/images/cow-milk.png'%}" alt="Fresh Milk" class="img-fluid">
+                    <h3 class="category-name">Pure Milk</h3>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Ice Cream Bars -->
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'category' 'IC' %}" class="text-decoration-none">
+                <div class="category-card">
+                    <img src="{% static 'app/images/icbars.png'%}" alt="Ice Cream" class="img-fluid">
+                    <h3 class="category-name">Ice Cream</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Add this at the end of the file to initialize animations -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize carousel with auto-play
+    new bootstrap.Carousel(document.querySelector('#heroCarousel'), {
+        interval: 3000,
+        touch: true
+    });
+
+    // Animate elements when they come into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.category-card').forEach(card => {
+        observer.observe(card);
+    });
+});
+</script>
+{% endblock main-content %}
+
+
+

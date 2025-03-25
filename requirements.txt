@@ -1,0 +1,22 @@
+Django==4.2.9
+Pillow==10.2.0
+
+
+# Authentication
+django-allauth==0.60.1  # For Google login and social authentication
+
+# Payment Integration
+razorpay==1.4.1  # Alternative payment gateway option
+
+# Additional Useful Packages
+django-crispy-forms==2.1
+django-filter==23.5
+python-dotenv==1.0.0
+
+
+# Search functionality
+django-searchqueryset==0.3.2
+
+# Performance and Utilities
+whitenoise==6.6.0  # Static file handling for deployment
+dj-database-url==2.1.0  # Database configuration
