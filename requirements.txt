@@ -14,9 +14,6 @@ django-filter==23.5
 python-dotenv==1.0.0
 
 
-# Search functionality
-django-searchqueryset==0.3.2
-
 # Performance and Utilities
 whitenoise==6.6.0  # Static file handling for deployment
 dj-database-url==2.1.0  # Database configuration
