@@ -1,6 +1,7 @@
-Django==4.2.9
 Pillow==10.2.0
-
+Django==4.2.11
+gunicorn==20.1.0
+psycopg2-binary==2.9.9  # Optional: if using PostgreSQL
 
 # Authentication
 django-allauth==0.60.1  # For Google login and social authentication
