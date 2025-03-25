@@ -125,18 +125,12 @@ USE_TZ = True
 
 
 
-STATIC_URL = "/static/"
-# STATIC_ROOT = os.path.join(BASE_DIR/'static')
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Directory where your static files are stored locally
-]
-STATIC_ROOT = BASE_DIR / "staticfiles"  # Directory where static files are collected for production
 
-# Whitenoise configuration for serving static files in production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR/'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'   
-LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_REDIRECT_URL = '/profile/''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
