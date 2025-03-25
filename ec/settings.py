@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+# postgresql://neel_dairy_user:SGImgPXvNw5pI6ylYPRrbRA5Y582HAt8@dpg-cvhcce3tq21c73e9rnbg-a.oregon-postgres.render.com/neel_dairy
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
